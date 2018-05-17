@@ -25,7 +25,6 @@ for hit in response:
                 print >> w, Exception,":",e
 f.close()
 w.close()
-
 ```
 
 
