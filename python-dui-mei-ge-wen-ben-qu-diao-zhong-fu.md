@@ -1,4 +1,4 @@
-1、python将all文件夹下的所有文本去重
+1、python将all文件夹下的所有文本去重，输出到all\_new
 
 ```
 # -*- coding: UTF-8 -*-  
@@ -25,7 +25,6 @@ for filename in filenames:
     filepath = filedir+'/'+filename
     filepath_new = filedir_new+'/'+filename
     quchong(filepath,filepath_new)
-
 ```
 
 
