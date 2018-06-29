@@ -1,4 +1,21 @@
-1、
+1、匹配出不以空格、tab开头后为at的行
+
+```
+#!/usr/bin/env python
+#encoding: utf-8
+import re
+f=open('sgbs-2018.06.28_out.txt','r')
+f1=open('result.txt','w')
+
+for line in f.readlines():
+        ret_match= (re.match("[ \t]at ",line) or re.match("java.lang",line));
+        if not (ret_match):
+                f1.write(line)
+f.close()
+f1.close
+```
+
+
 
 ```
 #!/usr/bin/env python
