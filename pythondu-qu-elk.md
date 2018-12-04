@@ -24,7 +24,7 @@ for hit in response:
         except Exception,e:
                 print >> w, Exception,":",e
 f.close()
-w.close()
+w.close
 ```
 
 

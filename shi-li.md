@@ -75,8 +75,7 @@ for line in file:
 
         lf.close()
         lf2.close()
-
 ```
 
-
+存在问题：无法判断素引是否存在，导致报错后续无法进行，目前只能通过project中顺序进行控制
 
