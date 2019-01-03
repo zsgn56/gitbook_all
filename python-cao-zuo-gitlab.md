@@ -23,7 +23,7 @@ def GetProject_userlist():
     project_name = IdList[1]
     for id in project_id:
         l = []
-#       print id
+        print id
         project_user = requests.get(user_url.format(id))
         #生成完整的用于显示项目下所有user的连接
         req_data = project_user.json()
@@ -57,7 +57,6 @@ for project in projects:
     url = base_url + project
     response = requests.request("DELETE", url, headers=headers, verify=False)
     print(response.text)
-
 ```
 
 
