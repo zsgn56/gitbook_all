@@ -4,8 +4,8 @@
 #!/usr/bin/env python
 #-*-coding:utf-8-*-
 import requests
-url = 'http://gitlab-ee.hktrd.cn/api/v4/projects?private_token=cLvSasxK1BmFyWuL_zNm&per_page=50'
-user_url= 'http://gitlab-ee.hktrd.cn/api/v4/users?private_token=cLvSasxK1BmFyWuL_zNm&per_page=50'
+url = 'http://gitlab-ee.hktrd.cn/api/v4/projects?private_token=cLvSasxK1BmFyWuL_zNm&per_page=500'
+user_url= 'http://gitlab-ee.hktrd.cn/api/v4/users?private_token=cLvSasxK1BmFyWuL_zNm&per_page=500'
 #获取项目id和项目名称
 def GetProject_id(project_url):
     r = requests.get(project_url)
