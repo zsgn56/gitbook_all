@@ -8,4 +8,5 @@
 * [python 对每个文本去掉重复](python-dui-mei-ge-wen-ben-qu-diao-zhong-fu.md)
 * [python 正则匹配](python-zhong-wen-zheng-ze-pi-pei.md)
 * [实例](shi-li.md)
+* [python 操作gitlab](python-cao-zuo-gitlab.md)
 
