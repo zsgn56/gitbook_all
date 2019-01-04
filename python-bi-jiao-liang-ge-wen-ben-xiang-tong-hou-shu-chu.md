@@ -1,4 +1,46 @@
-1
+1 支持比较每个行中的字符串，或者指定某列字符串
+
+```py
+#!/usr/bin/env python
+#-*-coding:utf-8-*-
+ 
+def str_search_in_file(str, fname):
+    with open(fname, 'r') as file_obj:
+        while 1:
+            line = file_obj.readline()
+            if line:
+                line = line.strip()
+                if (line.find (str,0) >= 0):
+                   print line
+            else:
+                break
+ 
+def find_same_str_in_2file(file1,file2):
+    with open(file1, 'r') as file_obj:
+        list1 = file_obj.readlines()
+        for line in list1:
+            strlist = line.split(' ')
+            i=0
+            #print 'len=', len(strlist)
+            while (i <len(strlist)):
+                print 'find for',strlist[i].strip() #strlist may have slash \n
+                str_search_in_file(strlist[i].strip(), file2)
+                i += 1
+ 
+def single_find_same_str_in_2file(file1,file2):
+    with open(file1, 'r') as file_obj:
+        list1 = file_obj.readlines()
+        for line in list1:
+            strlist = line.split(' ')
+            #print 'find for',strlist[0].strip() #strlist may have slash \n
+            str_search_in_file(strlist[0].strip(), file2)
+
+#str_search_in_file('lin', '1.txt')
+#find_same_str_in_2file('1.txt', '2.txt')
+single_find_same_str_in_2file('1.txt', '2.txt')
+```
+
+2
 
 ```py
 #!/usr/bin/env python
@@ -42,7 +84,6 @@ with open('2.txt') as file_object1:
 
 time2 = time.time()
 print(time2)
-
 ```
 
 
