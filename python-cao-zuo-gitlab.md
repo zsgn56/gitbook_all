@@ -74,7 +74,7 @@ def GetUserlist():
     for i in data:
         Name_list.append(i['name'])
         UserName_list.append(i['username'])
-    print i['name'],i['username']
+    print i['name'],i['username'],i['state']
 GetUserlist()
 ```
 
