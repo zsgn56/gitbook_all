@@ -59,5 +59,25 @@ for project in projects:
     print(response.text)
 ```
 
+3、列出所有用户信息，v3 api
+
+```py
+#!/usr/bin/env python
+#-*-coding:utf-8-*-
+import requests
+user3_url='https://gitlab.homeking365.com/api/v3/users?private_token=sNBuM8kyzZh62GishdnD&per_page=500'
+def GetUserlist():
+    r = requests.get(user3_url)
+    data = r.json()
+    Name_list = []
+    UserName_list = []
+    for i in data:
+        Name_list.append(i['name'])
+        UserName_list.append(i['username'])
+	print i['name'],i['username']
+GetUserlist()
+
+```
+
 
 
