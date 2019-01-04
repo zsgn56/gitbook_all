@@ -4,8 +4,8 @@
 #!/usr/bin/env python
 #-*-coding:utf-8-*-
 import requests
-url = 'http://gitlab-ee.hktrd.cn/api/v4/projects?private_token=cLvSasxK1BmFyWuL_zNm&per_page=500'
-user_url= 'http://gitlab-ee.hktrd.cn/api/v4/users?private_token=cLvSasxK1BmFyWuL_zNm&per_page=500'
+url = 'http://gitlab-ee22.cn/api/v4/projects?private_token=cLvSasxK1BmFyWuL_zNm&per_page=500'
+user_url= 'http://gitlab-ee22.cn/api/v4/users?private_token=cLvSasxK1BmFyWuL_zNm&per_page=500'
 #获取项目id和项目名称
 def GetProject_id(project_url):
     r = requests.get(project_url)
@@ -41,7 +41,7 @@ GetProject_userlist()
 
 import requests
 
-base_url = "http://gitlab-ee.hktrd.cn/api/v4/projects/"
+base_url = "http://gitlab-ee22.cn/api/v4/projects/"
 
 headers = {
     'private-token': "cLvSasxK1BmFyWuL_zNm"
@@ -74,9 +74,8 @@ def GetUserlist():
     for i in data:
         Name_list.append(i['name'])
         UserName_list.append(i['username'])
-	print i['name'],i['username']
+    print i['name'],i['username']
 GetUserlist()
-
 ```
 
 
