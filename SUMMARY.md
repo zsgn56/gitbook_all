@@ -9,4 +9,5 @@
 * [python 正则匹配](python-zhong-wen-zheng-ze-pi-pei.md)
 * [实例](shi-li.md)
 * [python 操作gitlab](python-cao-zuo-gitlab.md)
+* [python 比较两个文本相同后输出](python-bi-jiao-liang-ge-wen-ben-xiang-tong-hou-shu-chu.md)
 
