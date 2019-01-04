@@ -3,7 +3,7 @@
 ```py
 #!/usr/bin/env python
 #-*-coding:utf-8-*-
- 
+
 def str_search_in_file(str, fname):
     with open(fname, 'r') as file_obj:
         while 1:
@@ -14,7 +14,7 @@ def str_search_in_file(str, fname):
                    print line
             else:
                 break
- 
+
 def find_same_str_in_2file(file1,file2):
     with open(file1, 'r') as file_obj:
         list1 = file_obj.readlines()
@@ -26,7 +26,7 @@ def find_same_str_in_2file(file1,file2):
                 print 'find for',strlist[i].strip() #strlist may have slash \n
                 str_search_in_file(strlist[i].strip(), file2)
                 i += 1
- 
+
 def single_find_same_str_in_2file(file1,file2):
     with open(file1, 'r') as file_obj:
         list1 = file_obj.readlines()
@@ -40,7 +40,7 @@ def single_find_same_str_in_2file(file1,file2):
 single_find_same_str_in_2file('1.txt', '2.txt')
 ```
 
-2
+2 hash方法，尚未理解
 
 ```py
 #!/usr/bin/env python
