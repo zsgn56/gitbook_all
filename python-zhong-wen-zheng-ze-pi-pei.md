@@ -1,6 +1,6 @@
 1、匹配出不以空格、tab开头后为at的行
 
-```
+```py
 #!/usr/bin/env python
 #encoding: utf-8
 import re
@@ -16,8 +16,6 @@ f1.close
 ```
 
 2、中文匹配，未验证
-
-
 
 ```
 #!/usr/bin/env python
