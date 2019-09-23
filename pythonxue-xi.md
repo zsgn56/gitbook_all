@@ -8,7 +8,13 @@
                 print >> w, Exception,":",e
 ```
 
-2、readline文件显示去掉换行
+2、读取文件去掉换行
+
+```
+line = line.strip('\n')
+```
+
+3、readline文件显示去掉换行
 
 ```
 #python2
