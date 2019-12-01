@@ -1,6 +1,6 @@
 1、python将all文件夹下的所有文本去重，输出到all\_new
 
-```
+```py
 # -*- coding: UTF-8 -*-  
 import os
 def quchong(infile,outfile):
