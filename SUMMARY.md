@@ -1,13 +1,4 @@
-# Summary
+# Table of contents
 
-* [Introduction](README.md)
-* [First Chapter](chapter1.md)
-* [python学习](pythonxue-xi.md)
-* [python读取文本统计](pythondu-qu-wen-ben-tong-ji.md)
-* [python读取ELK](pythondu-qu-elk.md)
-* [python 对每个文本去掉重复](python-dui-mei-ge-wen-ben-qu-diao-zhong-fu.md)
-* [python 正则匹配](python-zhong-wen-zheng-ze-pi-pei.md)
-* [实例](shi-li.md)
-* [python 操作gitlab](python-cao-zuo-gitlab.md)
-* [python 比较两个文本相同后输出](python-bi-jiao-liang-ge-wen-ben-xiang-tong-hou-shu-chu.md)
+* [Initial page](README.md)
 
