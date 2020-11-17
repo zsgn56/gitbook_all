@@ -17,8 +17,8 @@ Vim /etc/openldap/slapd.d/cn=config/olcDatabase={2}hdb.ldif
 修改olcDatabase={2}hdb.ldif文件,对于该文件增加一行
 olcRootPW: {SSHA}o1bqtofUr95dkEDdXbAMAVPFSnNDU3+2，
 然后修改域信息：
-olcSuffix: dc=homeking365,dc=com
-olcRootDN: cn=root,dc=homeking365,dc=com
+olcSuffix: dc=xxx,dc=com
+olcRootDN: cn=root,dc=xxx,dc=com
 
 slaptest -u进行验证
 
@@ -44,8 +44,8 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
 
 
 vim /usr/share/migrationtools/migrate_common.ph +71
-$DEFAULT_MAIL_DOMAIN = "homeking365.com";
-$DEFAULT_BASE = "dc=homeking365,dc=com";
+$DEFAULT_MAIL_DOMAIN = "xxx.com";
+$DEFAULT_BASE = "dc=xxx,dc=com";
 $EXTENDED_SCHEMA = 1;
 ```
 
@@ -85,20 +85,20 @@ objectClass: top
 objectClass: organizationalUnit
 EOF
 
-ldapadd -x -w "xxxxxx" -D "cn=root,dc=homeking365,dc=com" -f /root/base.ldif
-ldapadd -x -w "xxxxxx" -D "cn=root,dc=homeking365,dc=com" -f /root/users.ldif
-ldapadd -x -w "xxxxxx" -D "cn=root,dc=homeking365,dc=com" -f /root/groups.ldif
+ldapadd -x -w "xxxxxx" -D "cn=root,dc=xxx,dc=com" -f /root/base.ldif
+ldapadd -x -w "xxxxxx" -D "cn=root,dc=xxx,dc=com" -f /root/users.ldif
+ldapadd -x -w "xxxxxx" -D "cn=root,dc=xxx,dc=com" -f /root/groups.ldif
 
 
 cat > add_user_to_groups.ldif << "EOF"
-dn: cn=ldapgroup1,ou=Group,dc=homeking365,dc=com
+dn: cn=ldapgroup1,ou=Group,dc=xxx,dc=com
 changetype: modify
 add: memberuid
 memberuid: ldapuser1
 EOF
-ldapadd -x -w "xxxxx" -D "cn=root,dc=homeking365,dc=com" -f /root/add_user_to_groups.ldif 
+ldapadd -x -w "xxxxx" -D "cn=root,dc=xxx,dc=com" -f /root/add_user_to_groups.ldif 
 
-ldapsearch -LLL -x -D 'cn=root,dc=homeking365,dc=com' -w "xxxx" -b 'dc=homeking365,dc=com' 'cn=ldapgroup1'
+ldapsearch -LLL -x -D 'cn=root,dc=xxx,dc=com' -w "xxxx" -b 'dc=xxx,dc=com' 'cn=ldapgroup1'
 ```
 
 ## 4、开启OpenLDAP日志访问功能
@@ -176,25 +176,25 @@ ldapadd -Q -Y EXTERNAL -H ldapi:/// -f refint2.ldif
 
 ```
 cat > /root/new_memberof_group.ldif << "EOF"
-dn: cn=zentao_groups,ou=Group,dc=homeking365,dc=com
+dn: cn=zentao_groups,ou=Group,dc=xxx,dc=com
 objectClass: groupOfUniqueNames
 cn: zentao_groups
 description: 运维部
-uniqueMember: uid=hkomd,ou=People,dc=homeking365,dc=com
+uniqueMember: uid=hkomd,ou=People,dc=xxx,dc=com
 EOF
-ldapadd -x -w "xxxx" -D "cn=root,dc=homeking365,dc=com" -f new_memberof_group.ldif
+ldapadd -x -w "xxxx" -D "cn=root,dc=xxx,dc=com" -f new_memberof_group.ldif
 
 
 ###添加其它用户到这个组
 cat > /root/adduser_to_memberof_group.ldif << "EOF"
-dn: cn=zentao_groups,ou=Group,dc=homeking365,dc=com
+dn: cn=zentao_groups,ou=Group,dc=xxx,dc=com
 changetype: modify
 add: uniqueMember
-uniqueMember: uid=wantt,ou=People,dc=homeking365,dc=com
+uniqueMember: uid=wantt,ou=People,dc=xxx,dc=com
 EOF
-ldapadd -x -w "xxx" -D "cn=root,dc=homeking365,dc=com" -f adduser_to_memberof_group.ldif
+ldapadd -x -w "xxx" -D "cn=root,dc=xxx,dc=com" -f adduser_to_memberof_group.ldif
 
-ldapsearch -x -LLL -H ldap:/// -b 'ou=group,dc=homeking365,dc=com'  memberof
+ldapsearch -x -LLL -H ldap:/// -b 'ou=group,dc=xxx,dc=com'  memberof
 ```
 
 ## 7、confluence使用ldap
@@ -222,25 +222,25 @@ ldapsearch -x -LLL -H ldap:/// -b 'ou=group,dc=homeking365,dc=com'  memberof
 
     sed -i "s/sn: ${USER}/sn: ${SN}/g" /root/users.ldif
 
-    ldapadd -x -w "xxx" -D "cn=root,dc=homeking365,dc=com" -f /root/users.ldif
+    ldapadd -x -w "xxx" -D "cn=root,dc=xxx,dc=com" -f /root/users.ldif
 
 
     cat > add_user_to_groups.ldif << EOF
-    dn: cn=ldapgroup,ou=Group,dc=homeking365,dc=com
+    dn: cn=ldapgroup,ou=Group,dc=xxx,dc=com
     changetype: modify
     add: memberuid
     memberuid: ${USER}
     EOF
 
-    ldapadd -x -w "xxx" -D "cn=root,dc=homeking365,dc=com" -f /root/add_user_to_groups.ldif
+    ldapadd -x -w "xxx" -D "cn=root,dc=xxx,dc=com" -f /root/add_user_to_groups.ldif
 
     cat > /root/adduser_to_memberof_group.ldif << EOF
-    dn: cn=docs_groups,ou=Group,dc=homeking365,dc=com
+    dn: cn=docs_groups,ou=Group,dc=xxx,dc=com
     changetype: modify
     add: uniqueMember
-    uniqueMember: uid=${USER},ou=People,dc=homeking365,dc=com
+    uniqueMember: uid=${USER},ou=People,dc=xxx,dc=com
     EOF
-    ldapadd -x -w "xxx" -D "cn=root,dc=homeking365,dc=com" -f /root/adduser_to_memberof_group.ldif
+    ldapadd -x -w "xxx" -D "cn=root,dc=xxx,dc=com" -f /root/adduser_to_memberof_group.ldif
 
     done < /root/ldapuser.txt
 
@@ -264,7 +264,7 @@ ldapsearch -x -LLL -H ldap:/// -b 'ou=group,dc=homeking365,dc=com'  memberof
      bind_dn: 'cn=root,dc=xxx,dc=com'
      password: 'xxxxx'
 
-     base: 'dc=homeking365,dc=com'
+     base: 'dc=xxx,dc=com'
      user_filter: '(memberOf=gitlab-ee_groups,ou=Group,dc=xxxx,dc=com)'
 ```
 
@@ -286,7 +286,7 @@ nginx.conf
 
 ```
     ldap_server ldap {
-        url "ldap://192.168.100.21:389/dc=homeking365,dc=com?uid?sub?(memberOf=cn=deploy_groups,ou=Group,dc=xxxx,dc=com)";
+        url "ldap://192.168.100.21:389/dc=xxx,dc=com?uid?sub?(memberOf=cn=deploy_groups,ou=Group,dc=xxxx,dc=com)";
         binddn "cn=root,dc=xxxx,dc=com";
         binddn_passwd "xxxxxx";
         #group_attribute memberUid;
